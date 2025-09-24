@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://4uxdypibrtxw"]
+
+[ext_resource type="PackedScene" uid="uid://cjk3mlpwra04l" path="res://levels/test/test_inherited.tscn" id="1_jtfo5"]
+[ext_resource type="PackedScene" uid="uid://cnp8afkviknet" path="res://models/bird/bird.tscn" id="2_mioqa"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kqk0q"]
+
+[sub_resource type="Sky" id="Sky_twiol"]
+sky_material = SubResource("ProceduralSkyMaterial_kqk0q")
+
+[sub_resource type="Environment" id="Environment_mjedn"]
+background_mode = 2
+sky = SubResource("Sky_twiol")
+ambient_light_color = Color(0.7294118, 1, 1, 1)
+ambient_light_sky_contribution = 0.95
+glow_enabled = true
+glow_levels/1 = 5.94
+glow_levels/2 = 4.88
+glow_levels/3 = 6.94
+glow_strength = 0.4
+glow_bloom = 0.01
+glow_blend_mode = 0
+fog_enabled = true
+adjustment_enabled = true
+adjustment_contrast = 1.07
+adjustment_saturation = 1.22
+
+[sub_resource type="Curve3D" id="Curve3D_jtfo5"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0.605, 0, 0, 0, 0, 0, 0, 0, 0, 0, -3.65, 0, 0, 0, 0, 0, 0, 0, -7.58, -10.88, 0, 0, 0, 0, 0, 0, -4.76837e-07, -5.41185, -19.5518),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="Node3D" type="Node3D"]
+
+[node name="test" parent="." instance=ExtResource("1_jtfo5")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mjedn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.4689324, 0.1855192, 0.86353064, -0.8832341, 0.09849705, 0.4584712, -3.5679046e-09, -0.9776917, 0.21004534, 0, 0, 0)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00384551, 0)
+curve = SubResource("Curve3D_jtfo5")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8487506, 1.8598987, 0)
+visible = false
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8487506, 0.43547356, -10.900904)
+visible = false
+
+[node name="bird" parent="." instance=ExtResource("2_mioqa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.046947718, 0.030835658, -0.0058434666)

@@ -1,0 +1,22 @@
+Maps:
+	Tutorial
+		boss: NULL
+	Snow
+		boss: Fox/Bear
+	Forest
+		boss: Snowmachine
+	Rooftop
+		boss: Birds/Cat
+	Sewers
+		boss: Poomonster
+	Ice-cream
+		boss: Candyman
+	Space
+		boss: Black hole
+	
+Characters:
+	Sock (goofy)
+	Beak (aggressive)
+	Nibble (careful)
+	Marble (stylish)
+	Pee (pee-colored)

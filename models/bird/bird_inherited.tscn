@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://yy7ngbl5x0kj"]
+
+[ext_resource type="PackedScene" uid="uid://c5dj6i6ip5seb" path="res://models/bird/bird.blend" id="1_yiplv"]
+
+[node name="bird" instance=ExtResource("1_yiplv")]
+
+[node name="snowsplash_l" parent="armature_bird/Skeleton3D" index="6"]
+visible = false
+
+[node name="snowsplash_r" parent="armature_bird/Skeleton3D" index="7"]
+visible = false
+
+[node name="AnimationPlayer" parent="." index="1"]
+playback_default_blend_time = 0.1

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpmuetwxc181k"]
+
+[ext_resource type="PackedScene" uid="uid://c10ddjnnnhn6l" path="res://levels/mainmenu/mainmenu_widget.tscn" id="1_tcnaq"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tcnaq"]
+
+[sub_resource type="Sky" id="Sky_nccs2"]
+sky_material = SubResource("ProceduralSkyMaterial_tcnaq")
+
+[sub_resource type="Environment" id="Environment_14uar"]
+background_mode = 2
+sky = SubResource("Sky_nccs2")
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="MainmenuWidget" parent="." instance=ExtResource("1_tcnaq")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_14uar")
+
+[node name="Camera3D" type="Camera3D" parent="."]

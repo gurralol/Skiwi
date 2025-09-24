@@ -1,0 +1,97 @@
+[gd_scene load_steps=9 format=3 uid="uid://cnp8afkviknet"]
+
+[ext_resource type="Script" uid="uid://gfuscfyuqvgn" path="res://models/bird/bird.gd" id="1_nadte"]
+[ext_resource type="PackedScene" uid="uid://yy7ngbl5x0kj" path="res://models/bird/bird_inherited.tscn" id="2_nadte"]
+[ext_resource type="AudioStream" uid="uid://dhbjepyhkn5pe" path="res://sound/fx/riding_snow.wav" id="3_tostg"]
+[ext_resource type="PackedScene" uid="uid://cuh8h317wjb3a" path="res://UI/ui.tscn" id="4_pjs6b"]
+
+[sub_resource type="Curve" id="Curve_tostg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.759542, 1), 0.0, 0.0, 0, 0, Vector2(0.9389313, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_pjs6b"]
+curve = SubResource("Curve_tostg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tostg"]
+emission_shape = 3
+emission_box_extents = Vector3(5, 0, 5)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 0.95
+initial_velocity_max = 1.6999999
+gravity = Vector3(0, -1, 0)
+scale_min = 0.049999997
+scale_max = 0.049999997
+scale_curve = SubResource("CurveTexture_pjs6b")
+turbulence_influence_min = 0.010000001
+turbulence_influence_max = 0.010000001
+
+[sub_resource type="SphereMesh" id="SphereMesh_pjs6b"]
+
+[node name="bird" type="Node3D" node_paths=PackedStringArray("pivot_root", "pivot_feet", "pivot_com", "rayC", "rayC_front", "rayC_back", "rayC_right", "rayC_left", "bird", "springArm", "camera", "birdAnimPlayer", "snowsplash_l", "snowsplash_r", "audiostream_ground")]
+script = ExtResource("1_nadte")
+pivot_root = NodePath("pivot_feet/pivot_root")
+pivot_feet = NodePath("pivot_feet")
+pivot_com = NodePath("pivot_com")
+rayC = NodePath("pivot_feet/pivot_root/RayCast3D")
+rayC_front = NodePath("pivot_feet/pivot_root/RayCast3D_Front")
+rayC_back = NodePath("pivot_feet/pivot_root/RayCast3D_Back")
+rayC_right = NodePath("pivot_feet/pivot_root/RayCast3D_Right")
+rayC_left = NodePath("pivot_feet/pivot_root/RayCast3D_Left")
+bird = NodePath("pivot_feet/pivot_root/bird")
+springArm = NodePath("pivot_feet/pivot_root/Node3D_SpringArm")
+camera = NodePath("pivot_feet/pivot_root/Node3D_SpringArm/Camera3D")
+birdAnimPlayer = NodePath("pivot_feet/pivot_root/bird/AnimationPlayer")
+snowsplash_l = NodePath("pivot_feet/pivot_root/bird/armature_bird/Skeleton3D/snowsplash_l")
+snowsplash_r = NodePath("pivot_feet/pivot_root/bird/armature_bird/Skeleton3D/snowsplash_r")
+audiostream_ground = NodePath("pivot_feet/pivot_root/AudioStreamPlayer3D_Ground")
+
+[node name="pivot_feet" type="Node3D" parent="."]
+
+[node name="pivot_root" type="Node3D" parent="pivot_feet"]
+
+[node name="bird" parent="pivot_feet/pivot_root" instance=ExtResource("2_nadte")]
+
+[node name="RayCast3D" type="RayCast3D" parent="pivot_feet/pivot_root"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+target_position = Vector3(0, -0.3, 0)
+
+[node name="Node3D_SpringArm" type="Node3D" parent="pivot_feet/pivot_root"]
+top_level = true
+
+[node name="Camera3D" type="Camera3D" parent="pivot_feet/pivot_root/Node3D_SpringArm"]
+transform = Transform3D(1, 0, 0, 0, 0.967484, 0.252931, 0, -0.252931, 0.967484, 0, 1.04805, 1.99516)
+current = true
+
+[node name="RayCast3D_Front" type="RayCast3D" parent="pivot_feet/pivot_root"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -0.6)
+target_position = Vector3(0, -0.5, 0)
+
+[node name="RayCast3D_Back" type="RayCast3D" parent="pivot_feet/pivot_root"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.6)
+target_position = Vector3(0, -0.5, 0)
+
+[node name="RayCast3D_Right" type="RayCast3D" parent="pivot_feet/pivot_root"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.3, 0)
+target_position = Vector3(0, -0.5, 0)
+
+[node name="RayCast3D_Left" type="RayCast3D" parent="pivot_feet/pivot_root"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.3, 0)
+target_position = Vector3(0, -0.5, 0)
+
+[node name="AudioStreamPlayer3D_Ground" type="AudioStreamPlayer3D" parent="pivot_feet/pivot_root"]
+stream = ExtResource("3_tostg")
+
+[node name="pivot_com" type="Node3D" parent="."]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3023999, 0)
+cast_shadow = 0
+amount = 250
+lifetime = 3.69
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_tostg")
+draw_pass_1 = SubResource("SphereMesh_pjs6b")
+
+[node name="Ui" parent="." instance=ExtResource("4_pjs6b")]
+
+[editable path="pivot_feet/pivot_root/bird"]

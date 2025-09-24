@@ -1,0 +1,178 @@
+[gd_scene load_steps=2 format=3 uid="uid://c10ddjnnnhn6l"]
+
+[sub_resource type="Theme" id="Theme_rl4ob"]
+
+[node name="MainmenuWidget" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel_Main" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_rl4ob")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_Career" type="Button" parent="Panel_Main/VBoxContainer"]
+layout_mode = 2
+text = "Career"
+
+[node name="Button_Online" type="Button" parent="Panel_Main/VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Online"
+
+[node name="Button_CustomGame" type="Button" parent="Panel_Main/VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Custom game"
+
+[node name="Button_Character" type="Button" parent="Panel_Main/VBoxContainer"]
+layout_mode = 2
+text = "Character"
+
+[node name="Button_Settings" type="Button" parent="Panel_Main/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Button_Quit" type="Button" parent="Panel_Main/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Panel_Career" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Career"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -103.0
+offset_right = 39.5
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_Snow" type="Button" parent="Panel_Career/VBoxContainer"]
+layout_mode = 2
+text = "Snow"
+
+[node name="Button_Forest" type="Button" parent="Panel_Career/VBoxContainer"]
+layout_mode = 2
+text = "Forest"
+
+[node name="Button_Rooftop" type="Button" parent="Panel_Career/VBoxContainer"]
+layout_mode = 2
+text = "Rooftop"
+
+[node name="Button_Sewers" type="Button" parent="Panel_Career/VBoxContainer"]
+layout_mode = 2
+text = "Sewers"
+
+[node name="Button_IceCream" type="Button" parent="Panel_Career/VBoxContainer"]
+layout_mode = 2
+text = "Icecream"
+
+[node name="Button_Space" type="Button" parent="Panel_Career/VBoxContainer"]
+layout_mode = 2
+text = "Space"
+
+[node name="Panel_Character" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Character"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel_Settings" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel_Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionButton" type="OptionButton" parent="Panel_Settings/VBoxContainer"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "hello"
+popup/item_0/id = 0
+popup/item_1/text = "yello"
+popup/item_1/id = 1
+
+[node name="CheckButton" type="CheckButton" parent="Panel_Settings/VBoxContainer"]
+layout_mode = 2
+
+[node name="TabBar" type="TabBar" parent="Panel_Settings"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+current_tab = 0
+tab_count = 4
+tab_0/title = "Gameplay"
+tab_1/title = "Controller"
+tab_2/title = "Graphics"
+tab_3/title = "Sound"
