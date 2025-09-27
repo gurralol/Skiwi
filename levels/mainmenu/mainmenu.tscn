@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpmuetwxc181k"]
+[gd_scene load_steps=6 format=3 uid="uid://bpmuetwxc181k"]
 
+[ext_resource type="Script" uid="uid://btdmees8kuo4m" path="res://levels/mainmenu/mainmenu.gd" id="1_nccs2"]
 [ext_resource type="PackedScene" uid="uid://c10ddjnnnhn6l" path="res://levels/mainmenu/mainmenu_widget.tscn" id="1_tcnaq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tcnaq"]
@@ -12,6 +13,7 @@ background_mode = 2
 sky = SubResource("Sky_nccs2")
 
 [node name="MainMenu" type="Node3D"]
+script = ExtResource("1_nccs2")
 
 [node name="MainmenuWidget" parent="." instance=ExtResource("1_tcnaq")]
 
@@ -19,3 +21,7 @@ sky = SubResource("Sky_nccs2")
 environment = SubResource("Environment_14uar")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+
+[connection signal="pressed" from="MainmenuWidget/Panel_Career/VBoxContainer/Button_Snow" to="." method="_on_button_snow_pressed"]
+
+[editable path="MainmenuWidget"]

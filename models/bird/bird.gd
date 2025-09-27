@@ -41,6 +41,13 @@ var skiwi_face_left = 0.0
 
 var boolTest = true
 
+var player_stats = {
+	"id": 1,
+	"name": "Player 1",
+	"score": 0,
+	#"lives": GameMode.current_mode.max_lives
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	arr_linVel.insert(0, self.global_position)

@@ -15,10 +15,13 @@ run/main_scene="uid://4uxdypibrtxw"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+gamemodes="*res://gamemodes/gamemodes.gd"
+gamestate="*res://gamemodes/gamestate.gd"
+
 [display]
 
-window/size/viewport_width=1600
-window/size/viewport_height=900
 window/vsync/vsync_mode=0
 
 [input]
